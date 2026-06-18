@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giulia Verghini — Project Manager · Innovazione · AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FBF8F2;
+    --bg2:#F4ECDE;
+    --ink:#1A1612;          /* nero-inchiostro caldo */
+    --ink-soft:#4A443C;
+    --sea:#3E8E87;
+    --sea-dark:#2E6F69;
+    --rosa:#D98C82;
+    --sand:#C98A3E;
+    --line:#1A1612;
+    --line-soft:rgba(26,22,18,.16);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);color:var(--ink);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    line-height:1.6;overflow-x:hidden;
+  }
+  ::selection{background:var(--ink);color:var(--bg)}
+  .serif{font-family:'Fraunces',Georgia,serif}
+
+  body[data-lang="it"] .en{display:none !important}
+  body[data-lang="en"] .it{display:none !important}
+
+  /* editorial labels */
+  .label{
+    font-size:.7rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;
+    color:var(--ink);
+  }
+  .num{font-family:'Fraunces',serif;font-style:italic;font-weight:400}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:14px 4vw;
+    background:var(--bg);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-logo{
+    font-family:'Fraunces',serif;font-weight:500;font-size:1.3rem;
+    letter-spacing:-.01em;color:var(--ink);text-decoration:none;
+  }
+  .nav-right{display:flex;align-items:center;gap:30px}
+  .nav-links{display:flex;gap:26px;list-style:none}
+  .nav-links a{
+    text-decoration:none;color:var(--ink);font-size:.74rem;font-weight:600;
+    letter-spacing:.12em;text-transform:uppercase;transition:opacity .2s;
+  }
+  .nav-links a:hover{opacity:.5}
+  @media(max-width:820px){.nav-links{display:none}}
+  .lang-switch{display:flex;gap:2px;font-size:.74rem;font-weight:700;letter-spacing:.08em}
+  .lang-switch button{
+    border:none;background:transparent;color:var(--ink);cursor:pointer;
+    font-family:inherit;padding:4px 6px;opacity:.4;transition:opacity .2s;
+  }
+  .lang-switch button.active{opacity:1;text-decoration:underline;text-underline-offset:3px}
+
+  /* ---------- HERO ---------- */
+  header{
+    border-bottom:1px solid var(--line);
+    padding:120px 4vw 0;
+  }
+  .hero-meta{
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+    padding-bottom:26px;border-bottom:1px solid var(--line-soft);
+  }
+  h1{
+    font-family:'Fraunces',serif;font-weight:300;
+    font-size:clamp(3.2rem,12vw,10rem);line-height:.92;letter-spacing:-.02em;
+    padding:42px 0 30px;
+  }
+  h1 em{font-style:italic;font-weight:400}
+  .hero-foot{
+    display:grid;grid-template-columns:1fr 1fr;gap:30px;
+    padding:30px 0 46px;border-top:1px solid var(--line-soft);
+  }
+  @media(max-width:760px){.hero-foot{grid-template-columns:1fr;gap:20px}}
+  .hero-sub{font-size:1.12rem;max-width:46ch;color:var(--ink-soft)}
+  .hero-cta{display:flex;align-items:flex-end;justify-content:flex-end;gap:18px}
+  @media(max-width:760px){.hero-cta{justify-content:flex-start}}
+  .link-arrow{
+    font-family:'Fraunces',serif;font-style:italic;font-size:1.3rem;
+    color:var(--ink);text-decoration:none;border-bottom:1.5px solid var(--ink);
+    padding-bottom:3px;transition:color .2s,border-color .2s;
+  }
+  .link-arrow:hover{color:var(--sea);border-color:var(--sea)}
+
+  /* ---------- SECTION SCAFFOLD ---------- */
+  section{padding:0 4vw}
+  .row{
+    display:grid;grid-template-columns:auto 1fr;gap:40px;
+    padding:30px 0;border-bottom:1px solid var(--line);
+  }
+  @media(max-width:760px){.row{grid-template-columns:1fr;gap:14px}}
+  .row-head{display:flex;flex-direction:column;gap:6px;min-width:120px}
+  .row-head .num{font-size:1.4rem;color:var(--sea)}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1)}
+  .reveal.visible{opacity:1;transform:translateY(0)}
+
+  h2{
+    font-family:'Fraunces',serif;font-weight:300;
+    font-size:clamp(2rem,5vw,3.4rem);line-height:1.05;letter-spacing:-.015em;
+  }
+  h2 em{font-style:italic;font-weight:400}
+
+  /* ---------- INTRO / STATEMENT + PHOTO ---------- */
+  .intro{
+    display:grid;grid-template-columns:1.4fr 1fr;gap:0;
+    border-bottom:1px solid var(--line);
+  }
+  @media(max-width:820px){.intro{grid-template-columns:1fr}}
+  .statement{
+    padding:60px 4vw;border-right:1px solid var(--line);
+    display:flex;flex-direction:column;justify-content:center;gap:22px;
+  }
+  @media(max-width:820px){.statement{border-right:none;border-bottom:1px solid var(--line)}}
+  .statement p{
+    font-family:'Fraunces',serif;font-weight:300;font-style:italic;
+    font-size:clamp(1.5rem,3vw,2.4rem);line-height:1.3;
+  }
+  .statement p b{font-weight:500;font-style:normal}
+  .photo{
+    min-height:460px;background:var(--bg2);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--ink-soft);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
+    text-align:center;padding:20px;
+  }
+  .photo img{width:100%;height:100%;object-fit:cover;display:block}
+
+  /* ---------- STORIA ---------- */
+  .storia-lead{
+    font-family:'Fraunces',serif;font-weight:300;
+    font-size:clamp(1.4rem,2.6vw,2rem);line-height:1.4;max-width:24ch;
+  }
+  .storia-lead em{font-style:italic}
+  .storia-body{max-width:54ch;color:var(--ink-soft);font-size:1.05rem}
+  .firma{
+    font-family:'Fraunces',serif;font-style:italic;font-size:1.15rem;
+    color:var(--ink);margin-top:18px;
+  }
+
+  /* journey */
+  .jnote{font-size:.86rem;color:var(--ink-soft);margin:6px 0 18px}
+  .tags{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--line-soft)}
+  .tag{
+    background:transparent;border:none;border-bottom:1px solid var(--line-soft);
+    color:var(--ink);cursor:pointer;font-family:'Fraunces',serif;
+    font-size:1.25rem;font-weight:400;text-align:left;
+    padding:15px 0;width:100%;display:flex;align-items:baseline;gap:14px;
+    transition:padding-left .25s,color .2s;
+  }
+  .tag:hover{padding-left:12px;color:var(--sea)}
+  .tag.active{padding-left:12px}
+  .tag .tnum{
+    font-family:'Inter',sans-serif;font-size:.7rem;font-weight:600;
+    letter-spacing:.1em;color:var(--ink-soft);min-width:34px;
+  }
+  .tag.active .tnum{color:var(--sea)}
+  .tag.cert .tnum{color:var(--sand)}
+  .tag .tplus{margin-left:auto;font-family:'Inter',sans-serif;font-size:1.1rem;opacity:.4;transition:transform .25s,opacity .2s}
+  .tag.active .tplus{transform:rotate(45deg);opacity:1;color:var(--sea)}
+
+  .panel{
+    max-height:0;opacity:0;overflow:hidden;
+    transition:max-height .4s cubic-bezier(.2,.7,.3,1),opacity .3s,padding .3s;
+    padding:0 0 0 48px;border-left:2px solid var(--sea);margin-left:0;
+  }
+  .panel.open{max-height:300px;opacity:1;padding:18px 0 24px 48px;margin:6px 0 6px}
+  .panel .pkind{font-size:.66rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--sea);margin-bottom:8px;display:block}
+  .panel .pkind.cert{color:var(--sand)}
+  .panel p{font-size:1.05rem;color:var(--ink-soft);max-width:64ch}
+
+  /* ---------- CONTATTI ---------- */
+  .contatti{
+    text-align:center;padding:90px 4vw;border-bottom:1px solid var(--line);
+  }
+  .contatti h2{font-size:clamp(2.4rem,7vw,5rem);margin-bottom:30px}
+  .contatti-links{display:flex;justify-content:center;flex-wrap:wrap;gap:26px}
+  .contatti-links a{
+    font-family:'Fraunces',serif;font-style:italic;font-size:1.3rem;
+    color:var(--ink);text-decoration:none;
+    border-bottom:1.5px solid var(--line);padding-bottom:3px;
+    transition:color .2s,border-color .2s;
+  }
+  .contatti-links a:hover{color:var(--sea);border-color:var(--sea)}
+
+  /* ---------- FOOTER (testata) ---------- */
+  footer{padding:40px 4vw}
+  .foot-rule{border-top:2px solid var(--line);padding-top:18px;
+    display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px}
+  .foot-name{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(1.6rem,4vw,2.4rem);letter-spacing:-.01em}
+  .foot-meta{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+</style>
+</head>
+<body data-lang="it">
+
+<nav>
+  <a class="nav-logo" href="#top">Giulia Verghini</a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#storia"><span class="it">Storia</span><span class="en">Story</span></a></li>
+      <li><a href="#contatti"><span class="it">Contatti</span><span class="en">Contact</span></a></li>
+    </ul>
+    <div class="lang-switch">
+      <button id="btn-it" class="active" onclick="setLang('it')">IT</button>
+      <button id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</nav>
+
+<header id="top">
+  <div class="hero-meta">
+    <span class="label">Project Management · Business Development · <span class="it">Innovazione</span><span class="en">Innovation</span> · AI</span>
+    <span class="label"><span class="it">Roma, Italia</span><span class="en">Rome, Italy</span></span>
+  </div>
+  <h1 class="serif">
+    <span class="it">Dalle parole,<br><em>ai progetti.</em></span>
+    <span class="en">From words,<br><em>to projects.</em></span>
+  </h1>
+  <div class="hero-foot">
+    <p class="hero-sub">
+      <span class="it">Giulia Verghini. Unisco una formazione umanistica a competenze di project management, innovazione e intelligenza artificiale, lavorando all'intersezione tra persone, strategia e tecnologia.</span>
+      <span class="en">Giulia Verghini. I combine a humanities background with project management, innovation and artificial intelligence, working at the intersection of people, strategy and technology.</span>
+    </p>
+    <div class="hero-cta">
+      <a class="link-arrow" href="#contatti"><span class="it">Contattami →</span><span class="en">Get in touch →</span></a>
+    </div>
+  </div>
+</header>
+
+<div class="intro">
+  <div class="statement reveal">
+    <span class="label"><span class="num">↓</span> &nbsp;<span class="it">Il punto</span><span class="en">The point</span></span>
+    <p>
+      <span class="it">Più la capacità tecnica si diffonde, <b>meno è sufficiente da sola.</b> Ciò che fa la differenza è la capacità di comprendere il contesto, orientare il confronto e costruire allineamento tra persone e competenze diverse.</span>
+      <span class="en">The more technical capability spreads, <b>the less it is enough on its own.</b> What makes the difference is the ability to understand context, steer the conversation and build alignment between different people and skills.</span>
+    </p>
+  </div>
+  <div class="photo reveal">
+    <img src="giulia.jpeg" alt="Giulia Verghini">
+  </div>
+</div>
+
+<section id="storia">
+  <div class="row reveal">
+    <div class="row-head">
+      <span class="num">01</span>
+      <span class="label"><span class="it">La storia</span><span class="en">The story</span></span>
+    </div>
+    <div>
+      <p class="storia-lead serif">
+        <span class="it">Mondi che sembrano distanti. È nel passaggio dall'uno all'altro che ho imparato a <em>tradurre linguaggi, prospettive e bisogni diversi.</em></span>
+        <span class="en">Worlds that look distant. It's in the passage from one to the next that I learned to <em>translate different languages, perspectives and needs.</em></span>
+      </p>
+    </div>
+  </div>
+
+  <div class="row reveal">
+    <div class="row-head">
+      <span class="num">02</span>
+      <span class="label"><span class="it">Il percorso</span><span class="en">The path</span></span>
+    </div>
+    <div>
+      <p class="jnote"><span class="it">Cinque tappe, due certificazioni. Apri una voce per scoprire competenze, strumenti e insegnamenti che ne ho tratto.</span><span class="en">Five steps, two certifications. Open an item to discover the skills, tools and lessons I drew from each.</span></p>
+      <div class="tags" id="tags">
+        <button class="tag active" data-key="lingue"><span class="tnum">01</span><span class="it">Lingue</span><span class="en">Languages</span><span class="tplus">+</span></button>
+        <button class="tag" data-key="insegnamento"><span class="tnum">02</span><span class="it">Insegnamento</span><span class="en">Teaching</span><span class="tplus">+</span></button>
+        <button class="tag" data-key="industria"><span class="tnum">03</span><span class="it">Industria</span><span class="en">Industry</span><span class="tplus">+</span></button>
+        <button class="tag" data-key="innovazione"><span class="tnum">04</span><span class="it">Innovazione</span><span class="en">Innovation</span><span class="tplus">+</span></button>
+        <button class="tag" data-key="ai"><span class="tnum">05</span><span class="it">Master in AI Development</span><span class="en">Master in AI Development</span><span class="tplus">+</span></button>
+        <button class="tag cert" data-key="cert-pmp"><span class="tnum">C1</span>PMP<span class="tplus">+</span></button>
+        <button class="tag cert" data-key="cert-agile"><span class="tnum">C2</span>Agile PM<span class="tplus">+</span></button>
+      </div>
+      <div class="panel" id="panel">
+        <span class="pkind" id="panel-kind"></span>
+        <p id="panel-text"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contatti" id="contatti">
+  <div class="reveal">
+    <span class="label"><span class="num">03</span> &nbsp;<span class="it">Contatti</span><span class="en">Contact</span></span>
+    <h2 class="serif" style="margin-top:18px"><span class="it">Scrivimi.</span><span class="en">Write to me.</span></h2>
+    <div class="contatti-links">
+      <a href="mailto:giulia_verghini_13@libero.it">Email</a>
+      <a href="https://www.linkedin.com/in/giuliaverghini" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/giuliaverghini-13" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-rule">
+    <span class="foot-name serif">Giulia Verghini</span>
+    <span class="foot-meta">© 2026 — <span class="it">Roma</span><span class="en">Rome</span></span>
+  </div>
+</footer>
+
+<script>
+  function setLang(l){
+    document.body.setAttribute('data-lang', l);
+    document.documentElement.lang = l;
+    document.getElementById('btn-it').classList.toggle('active', l==='it');
+    document.getElementById('btn-en').classList.toggle('active', l==='en');
+    renderPanel();
+  }
+
+  const DATA = {
+    'lingue':       {kind:'path',
+      it:'Laurea in Lingue, Culture, Letterature e Traduzione alla Sapienza (104/110). Tesi in letteratura angloamericana sui romanzi di guerra di Helen Benedict. Qui ho imparato a leggere testi, contesti e persone — e a muovermi tra inglese e spagnolo.',
+      en:'A degree in Languages, Cultures, Literatures and Translation at Sapienza (104/110). Thesis in Anglo-American literature on Helen Benedict\u2019s war novels. This is where I learned to read texts, contexts and people — and to move between English and Spanish.'},
+    'insegnamento': {kind:'path',
+      it:'Durante l\u2019università ho fatto da tutor a ragazzi delle superiori al centro studi "Il Mago di Oz". Spiegare cose difficili in modo che arrivino: è lì che ho capito cosa significa davvero far comunicare due mondi.',
+      en:'During university I tutored high-school students at the "Il Mago di Oz" study centre. Explaining hard things so they land: that\u2019s where I understood what it really means to make two worlds talk to each other.'},
+    'industria':    {kind:'path',
+      it:'Tre anni in una multinazionale B2B, da specialist a manager di commessa. Ho gestito clienti come Amazon e Novartis: operazioni complesse, alti volumi, pragmatismo quotidiano.',
+      en:'Three years in a B2B multinational, from specialist to account manager. I managed clients like Amazon and Novartis: complex operations, high volumes, everyday pragmatism.'},
+    'innovazione':  {kind:'path',
+      it:'Oggi, in una società di ingegneria e costruzioni: progettazione e gestione di programmi e progetti europei di ricerca, partenariati internazionali, innovazione su sostenibilità e transizione digitale.',
+      en:'Today, in an engineering and construction company: design and management of European research programmes and projects, international partnerships, innovation in sustainability and digital transition.'},
+    'ai':           {kind:'path',
+      it:'Master in AI Development con ProfessionAI (maggio 2026): 400 ore, 11 progetti realizzati. Python, machine learning, LLM, Agentic AI, Transformer con Hugging Face, full-stack MERN. Per capire davvero la tecnologia, non solo coordinarla.',
+      en:'Master\u2019s in AI Development with ProfessionAI (May 2026): 400 hours, 11 projects built. Python, machine learning, LLMs, Agentic AI, Transformers with Hugging Face, full-stack MERN. To truly understand the technology, not just coordinate it.'},
+    'cert-pmp':     {kind:'cert',
+      it:'Project Management Institute. Esame in preparazione: gestione di persone, processi e contesto di business lungo tutto il ciclo di progetto.',
+      en:'Project Management Institute. Exam in preparation: managing people, processes and the business environment across the full project lifecycle.'},
+    'cert-agile':   {kind:'cert',
+      it:'Politecnico di Milano, 2025 (EQF 6). Agile Project Management for digital projects: principi Agile e framework SCRUM per gestire la complessità in contesti dinamici.',
+      en:'Politecnico di Milano, 2025 (EQF 6). Agile Project Management for digital projects: Agile principles and the SCRUM framework for managing complexity in dynamic environments.'}
+  };
+
+  let currentKey = 'lingue';
+  const panel = document.getElementById('panel');
+  const pKind = document.getElementById('panel-kind');
+  const pText = document.getElementById('panel-text');
+
+  function renderPanel(){
+    const d = DATA[currentKey]; if(!d) return;
+    const lang = document.body.getAttribute('data-lang');
+    pText.textContent = lang==='it' ? d.it : d.en;
+    if(d.kind==='cert'){ pKind.textContent = lang==='it'?'Certificazione':'Certification'; pKind.classList.add('cert'); }
+    else { pKind.textContent = lang==='it'?'Percorso':'Path'; pKind.classList.remove('cert'); }
+  }
+
+  document.querySelectorAll('.tag').forEach(tag => {
+    tag.addEventListener('click', () => {
+      const key = tag.getAttribute('data-key');
+      const tags = document.querySelectorAll('.tag');
+      if(key === currentKey && panel.classList.contains('open')){
+        panel.classList.remove('open'); tags.forEach(t=>t.classList.remove('active')); return;
+      }
+      currentKey = key;
+      tags.forEach(t=>t.classList.toggle('active', t===tag));
+      renderPanel(); panel.classList.add('open');
+    });
+  });
+  renderPanel(); panel.classList.add('open');
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target);} });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
