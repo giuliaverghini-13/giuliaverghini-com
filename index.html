@@ -30,7 +30,7 @@
   body[data-lang="it"] .en{display:none !important}
   body[data-lang="en"] .it{display:none !important}
 
-  /* highlight a blocchi colorati (il tratto di Kantwon) */
+  /* highlight a blocchi colorati */
   .hl{
     display:inline;box-decoration-break:clone;-webkit-box-decoration-break:clone;
     padding:2px 10px;line-height:1.7;
@@ -40,7 +40,7 @@
   .hl-o{background:var(--arancio);color:#fff}
   .hl-y{background:var(--ocra);color:var(--ink)}
 
-  /* ---------- NAV (stile Kantwon: logo a sx, social a dx) ---------- */
+  /* ---------- NAV ---------- */
   nav{
     position:fixed;top:0;left:0;right:0;z-index:100;
     display:flex;justify-content:space-between;align-items:center;
@@ -72,7 +72,7 @@
   }
   .lang-switch button.active{background:var(--ink);color:var(--white)}
 
-  /* ---------- HERO (stile Kantwon) ---------- */
+  /* ---------- HERO ---------- */
   header{
     min-height:100vh;display:flex;flex-direction:column;align-items:center;
     justify-content:center;text-align:center;padding:120px 5vw 40px;position:relative;
@@ -96,11 +96,6 @@
   }
   .avatar{width:340px;max-width:74vw}
   .avatar img{width:100%;height:auto;display:block;filter:drop-shadow(0 18px 30px rgba(0,0,0,.18))}
-  .avatar .ph{
-    width:340px;max-width:74vw;aspect-ratio:3/4;border-radius:24px;
-    background:rgba(0,0,0,.06);display:flex;align-items:center;justify-content:center;
-    font-size:.9rem;font-weight:600;color:var(--ink);opacity:.6;text-align:center;padding:24px;
-  }
   @keyframes pop{from{opacity:0;transform:translateY(22px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
   .scroll-hint{
     position:absolute;bottom:26px;font-size:1.6rem;color:var(--ink);
@@ -131,11 +126,13 @@
   .who-photo .splat{position:absolute;border-radius:46% 54% 60% 40%/55% 48% 52% 45%;z-index:1}
   .who-photo .s1{width:75%;height:75%;background:var(--magenta);top:8%;left:6%}
   .who-photo .s2{width:55%;height:55%;background:var(--teal);bottom:4%;right:4%;opacity:.85}
-  .who-photo .ph{position:relative;z-index:2;color:#fff;font-weight:700;text-align:center;padding:20px;font-size:.95rem}
   .who-text p{font-size:1.18rem;margin-bottom:18px;font-weight:500;line-height:1.7}
   .who-text p:last-child{margin-bottom:0}
 
-  /* ---------- PERCORSO (tag) ---------- */
+  /* ---------- IL PUNTO ---------- */
+  .sec-ocra p{font-size:clamp(1.4rem,3vw,2.1rem);font-weight:700;line-height:1.45;max-width:24ch}
+
+  /* ---------- PERCORSO (Macrocategorie) ---------- */
   .jnote{font-size:1.05rem;margin-bottom:24px;font-weight:500;max-width:62ch}
   .tags{display:flex;flex-wrap:wrap;gap:12px}
   .tag{
@@ -143,26 +140,37 @@
     background:var(--white);color:var(--ink);
     font-size:1rem;font-weight:700;padding:12px 22px;border-radius:999px;
     display:inline-flex;align-items:center;gap:9px;
-    transition:transform .2s;
+    transition:transform .2s, box-shadow .2s;
   }
-  .tag:hover{transform:translateY(-3px) rotate(-1deg)}
+  .tag:hover{transform:translateY(-3px) rotate(-1deg); box-shadow: 0 4px 12px rgba(0,0,0,0.15);}
   .tag.active{background:var(--ink);color:var(--white)}
   .tag .dot{width:9px;height:9px;border-radius:50%;background:var(--arancio)}
-  .tag.cert .dot{background:var(--teal)}
   .tag.active .dot{background:var(--ocra)}
+  
+  /* Restyling del Pannello */
   .panel{
     max-height:0;opacity:0;overflow:hidden;
-    transition:max-height .4s cubic-bezier(.2,.7,.3,1),opacity .3s,margin .3s,padding .3s;
-    background:var(--white);color:var(--ink);border-radius:20px;margin-top:0;padding:0 30px;
+    transition:max-height .5s cubic-bezier(.2,.7,.3,1),opacity .3s,margin .3s,padding .3s;
+    background:var(--white);color:var(--ink);border-radius:20px;margin-top:0;padding:0 40px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
   }
-  .panel.open{max-height:420px;opacity:1;margin-top:22px;padding:26px 30px}
-  .panel .pkind{
-    display:inline-block;font-size:.7rem;font-weight:800;letter-spacing:.08em;
-    text-transform:uppercase;color:#fff;background:var(--arancio);
-    padding:4px 12px;border-radius:999px;margin-bottom:12px;
+  .panel.open{max-height:700px;opacity:1;margin-top:26px;padding:34px 40px}
+  @media(max-width:680px){.panel.open{padding:26px 24px}}
+  
+  #panel-content h3 { font-size: 1.4rem; margin-bottom: 12px; color: var(--magenta); font-weight: 800; letter-spacing: -0.02em; }
+  #panel-content p { font-size: 1.05rem; line-height: 1.6; font-weight: 500; margin-bottom: 16px; color: var(--ink); }
+  #panel-content ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  #panel-content li { display: flex; align-items: flex-start; gap: 12px; font-size: 1rem; font-weight: 400; line-height: 1.5; }
+  #panel-content li strong { font-weight: 700; }
+  #panel-content li::before { content: '→'; color: var(--arancio); font-weight: 800; font-size: 1.1rem; line-height: 1.4; }
+  
+  .doc-link { 
+    display: inline-flex; align-items: center; gap: 6px; 
+    font-size: 0.95rem; color: var(--teal); font-weight: 600; 
+    text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1.5px;
+    transition: color 0.2s; white-space: nowrap; margin-left: 6px;
   }
-  .panel .pkind.cert{background:var(--teal)}
-  .panel p{font-size:1.05rem;line-height:1.65;font-weight:500}
+  .doc-link:hover { color: var(--magenta); }
 
   /* ---------- CONTATTI ---------- */
   .contatti{text-align:center}
@@ -267,20 +275,18 @@
 <!-- ============ IL MIO PERCORSO ============ -->
 <section class="sec-magenta" id="percorso">
   <div class="wrap">
-    <div class="reveal"><span class="badge-title hl-y"><span class="it">Il mio percorso 🧭</span><span class="en">My path 🧭</span></span></div>
-    <p class="jnote reveal"><span class="it">Un percorso in continua evoluzione. Esplora le tappe per scoprire il mio background, le competenze tecniche e il mio approccio ai progetti.</span><span class="en">An evolving journey. Explore the milestones to discover my background, technical skills, and approach to projects.</span></p>
+    <div class="reveal"><span class="badge-title hl-y"><span class="it">Le mie competenze 🧭</span><span class="en">My toolkit 🧭</span></span></div>
+    <p class="jnote reveal"><span class="it">Un percorso in continua evoluzione. Esplora le macro-aree per scoprire il mio background, le competenze tecniche e il mio approccio ai progetti.</span><span class="en">An evolving journey. Explore the macro-areas to discover my background, technical skills, and approach to projects.</span></p>
+    
     <div class="tags reveal" id="tags">
-      <button class="tag active" data-key="lingue"><span class="dot"></span><span class="it">Lingue</span><span class="en">Languages</span></button>
-      <button class="tag" data-key="insegnamento"><span class="dot"></span><span class="it">Insegnamento</span><span class="en">Teaching</span></button>
-      <button class="tag" data-key="industria"><span class="dot"></span><span class="it">Industria</span><span class="en">Industry</span></button>
-      <button class="tag" data-key="innovazione"><span class="dot"></span><span class="it">Innovazione</span><span class="en">Innovation</span></button>
-      <button class="tag" data-key="ai"><span class="dot"></span><span class="it">Master in AI Development</span><span class="en">Master in AI Development</span></button>
-      <button class="tag cert" data-key="cert-pmp"><span class="dot"></span>PMP</button>
-      <button class="tag cert" data-key="cert-agile"><span class="dot"></span>Agile PM</button>
+      <button class="tag active" data-key="pm"><span class="dot"></span><span class="it">Project Management</span><span class="en">Project Management</span></button>
+      <button class="tag" data-key="ai"><span class="dot"></span><span class="it">Intelligenza Artificiale</span><span class="en">Artificial Intelligence</span></button>
+      <button class="tag" data-key="innovazione"><span class="dot"></span><span class="it">Innovazione, PM & Business</span><span class="en">Innovation, PM & Business</span></button>
+      <button class="tag" data-key="background"><span class="dot"></span><span class="it">Background Umanistico</span><span class="en">Humanities</span></button>
     </div>
+    
     <div class="panel" id="panel">
-      <span class="pkind" id="panel-kind"></span>
-      <p id="panel-text"></p>
+      <div id="panel-content"></div>
     </div>
   </div>
 </section>
@@ -306,43 +312,82 @@
 
 <script>
   const DATA = {
-    'lingue':{kind:'path',
-      it:'Laurea in Lingue, Culture, Letterature e Traduzione alla Sapienza (104/110). Tesi in letteratura angloamericana sui romanzi di guerra di Helen Benedict. Qui ho imparato a leggere testi, contesti e persone — e a muovermi tra inglese e spagnolo.',
-      en:'Degree in Languages, Cultures, Literatures and Translation at Sapienza (104/110). Thesis in Anglo-American literature on Helen Benedict\u2019s war novels. Here I learned to read texts, contexts and people — and to move between English and Spanish.'},
-    'insegnamento':{kind:'path',
-      it:'Durante l\u2019università ho fatto da tutor a ragazzi delle superiori al centro studi "Il Mago di Oz". Spiegare cose difficili in modo che arrivino: è lì che ho capito cosa significa far comunicare due mondi.',
-      en:'During university I tutored high-school students at the "Il Mago di Oz" study centre. Explaining hard things so they land: that\u2019s where I understood what it means to make two worlds talk.'},
-    'industria':{kind:'path',
-      it:'Tre anni in una multinazionale B2B, da specialist a manager di commessa. Ho gestito clienti come Amazon e Novartis: operazioni complesse, alti volumi, pragmatismo quotidiano.',
-      en:'Three years in a B2B multinational, from specialist to account manager. I managed clients like Amazon and Novartis: complex operations, high volumes, everyday pragmatism.'},
-    'innovazione':{kind:'path',
-      it:'Oggi, in una società di ingegneria e costruzioni: progettazione e gestione di programmi e progetti europei di ricerca, partenariati internazionali, innovazione su sostenibilità e transizione digitale.',
-      en:'Today, in an engineering and construction company: design and management of European research programmes and projects, international partnerships, innovation in sustainability and digital transition.'},
-    'ai':{kind:'path',
-      it:'Master in AI Development con ProfessionAI (maggio 2026): 400 ore, 11 progetti realizzati. Python, machine learning, LLM, Agentic AI, Transformer con Hugging Face, full-stack MERN. Per capire davvero la tecnologia, non solo coordinarla.',
-      en:'Master\u2019s in AI Development with ProfessionAI (May 2026): 400 hours, 11 projects built. Python, machine learning, LLMs, Agentic AI, Transformers with Hugging Face, full-stack MERN. To truly understand the technology, not just coordinate it.'},
-    'cert-pmp':{kind:'cert',
-      it:'Project Management Institute. Esame in preparazione: gestione di persone, processi e contesto di business lungo tutto il ciclo di progetto.',
-      en:'Project Management Institute. Exam in preparation: managing people, processes and the business environment across the full project lifecycle.'},
-    'cert-agile':{kind:'cert',
-      it:'Politecnico di Milano, 2025 (EQF 6). Agile Project Management for digital projects: principi Agile e framework SCRUM per gestire la complessità in contesti dinamici.',
-      en:'Politecnico di Milano, 2025 (EQF 6). Agile Project Management for digital projects: Agile principles and the SCRUM framework to handle complexity in dynamic settings.'}
+    'pm': {
+      it: `<h3>Project Management & Business</h3>
+           <p>Gestione di persone, processi e complessità in contesti dinamici, unendo pragmatismo ed execution.</p>
+           <ul>
+             <li><span>Esperienza di 3 anni come account manager in una multinazionale B2B (clienti: Amazon, Novartis).</span></li>
+             <li><span>Certificazione <strong>Agile PM</strong> per progetti digitali (Politecnico di Milano, EQF 6).<a href="cert-agile.pdf" target="_blank" class="doc-link">📄 Vedi certificato</a></span></li>
+             <li><span>In preparazione per l'esame <strong>PMP®</strong> (Project Management Institute).</span></li>
+           </ul>`,
+      en: `<h3>Project Management & Business</h3>
+           <p>Managing people, processes, and complexity in dynamic environments, combining pragmatism and execution.</p>
+           <ul>
+             <li><span>3 years of experience as an account manager in a B2B multinational (clients: Amazon, Novartis).</span></li>
+             <li><span><strong>Agile PM</strong> certification for digital projects (Politecnico di Milano, EQF 6).<a href="cert-agile.pdf" target="_blank" class="doc-link">📄 View certificate</a></span></li>
+             <li><span>Currently preparing for the <strong>PMP®</strong> exam (Project Management Institute).</span></li>
+           </ul>`
+    },
+    'ai': {
+      it: `<h3>Intelligenza Artificiale</h3>
+           <p>Master in AI Development con ProfessionAI (400 ore, 11 progetti pratici). L'obiettivo: capire la tecnologia "mani in pasta", non solo coordinarla su carta.</p>
+           <ul>
+             <li><span>Sviluppo in <strong>Python</strong>, Machine Learning e architetture LLM.<a href="cert-ai.pdf" target="_blank" class="doc-link">📄 Vedi certificato</a></span></li>
+             <li><span>Esperienza pratica con Agentic AI e modelli Transformer (Hugging Face).</span></li>
+             <li><span>Sviluppo full-stack in ambiente MERN.</span></li>
+           </ul>`,
+      en: `<h3>Artificial Intelligence</h3>
+           <p>Master's in AI Development with ProfessionAI (400 hours, 11 practical projects). The goal: to understand technology hands-on, not just coordinate it on paper.</p>
+           <ul>
+             <li><span>Development in <strong>Python</strong>, Machine Learning, and LLM architectures.<a href="cert-ai.pdf" target="_blank" class="doc-link">📄 View certificate</a></span></li>
+             <li><span>Practical experience with Agentic AI and Transformer models (Hugging Face).</span></li>
+             <li><span>Full-stack development in the MERN stack.</span></li>
+           </ul>`
+    },
+    'innovazione': {
+      it: `<h3>Innovazione, PM & Business</h3>
+           <p>Nel mio attuale ruolo in una società di ingegneria e costruzioni unisco la gestione pura, lo sviluppo commerciale e la visione innovativa.</p>
+           <ul>
+             <li><span><strong>Project Management:</strong> Progettazione, coordinamento e gestione di programmi di ricerca europei complessi.</span></li>
+             <li><span><strong>Business Development:</strong> Creazione e sviluppo di partenariati strategici a livello internazionale.</span></li>
+             <li><span><strong>Innovazione:</strong> Guida di progetti trasversali con un forte focus su sostenibilità e transizione digitale.</span></li>
+           </ul>`,
+      en: `<h3>Innovation, PM & Business</h3>
+           <p>In my current role in an engineering and construction company, I combine project management, business development, and innovative vision.</p>
+           <ul>
+             <li><span><strong>Project Management:</strong> Design, coordination, and management of complex European research programs.</span></li>
+             <li><span><strong>Business Development:</strong> Creation and development of strategic international partnerships.</span></li>
+             <li><span><strong>Innovation:</strong> Leading transversal projects with a strong focus on sustainability and digital transition.</span></li>
+           </ul>`
+    },
+    'background': {
+      it: `<h3>Background Umanistico</h3>
+           <p>Il punto di partenza che mi permette di far parlare "mondi diversi".</p>
+           <ul>
+             <li><span>Laurea Magistrale in <strong>Lingue, Culture e Traduzione</strong> alla Sapienza (104/110).<a href="esami-uni.pdf" target="_blank" class="doc-link">📄 Vedi piano di studi</a></span></li>
+             <li><span>Esperienza di insegnamento: tradurre concetti complessi per renderli accessibili.</span></li>
+             <li><span>Capacità di analisi profonda di testi, contesti operativi e, soprattutto, persone.</span></li>
+           </ul>`,
+      en: `<h3>Humanities Background</h3>
+           <p>The starting point that allows me to make "different worlds" talk to each other.</p>
+           <ul>
+             <li><span>Master's Degree in <strong>Languages, Cultures and Translation</strong> at Sapienza (104/110).<a href="esami-uni.pdf" target="_blank" class="doc-link">📄 View transcript</a></span></li>
+             <li><span>Teaching experience: translating complex concepts to make them accessible.</span></li>
+             <li><span>Deep analytical skills applied to texts, operational contexts, and most importantly, people.</span></li>
+           </ul>`
+    }
   };
 
-  let current = 'lingue';
+  let current = 'pm';
 
   function renderPanel(){
     const lang = document.body.getAttribute('data-lang');
     const d = DATA[current];
     if(!d) return;
     const panel = document.getElementById('panel');
-    const kind = document.getElementById('panel-kind');
-    const text = document.getElementById('panel-text');
-    kind.className = 'pkind' + (d.kind === 'cert' ? ' cert' : '');
-    kind.textContent = d.kind === 'cert'
-      ? (lang === 'it' ? 'Certificazione' : 'Certification')
-      : (lang === 'it' ? 'Percorso' : 'Path');
-    text.textContent = (lang === 'it') ? d.it : d.en;
+    const content = document.getElementById('panel-content');
+    
+    content.innerHTML = (lang === 'it') ? d.it : d.en;
     panel.classList.add('open');
   }
 
