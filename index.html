@@ -175,7 +175,19 @@
   /* ---------- CONTATTI ---------- */
   .contatti{text-align:center}
   .contatti .badge-title{background:var(--ocra);color:var(--ink)}
-  .contatti p{font-size:1.2rem;max-width:40ch;margin:0 auto 34px;font-weight:500}
+  .contatti-intro {font-size:1.2rem;max-width:40ch;margin:0 auto 16px;font-weight:500}
+  .cv-joke {font-size:1.05rem;max-width:55ch;margin:0 auto 34px;font-weight:400;opacity:0.95;line-height:1.6}
+  
+  .cv-link {
+    color: var(--ocra);
+    font-weight: 800;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 4px;
+    transition: color 0.2s;
+  }
+  .cv-link:hover { color: var(--arancio); }
+
   .contatti-links{display:flex;justify-content:center;flex-wrap:wrap;gap:16px}
   .clink{
     text-decoration:none;font-weight:700;font-size:1.05rem;
@@ -292,7 +304,11 @@
 <section class="sec-teal contatti" id="contatti">
   <div class="wrap reveal">
     <span class="badge-title"><span class="it">Scrivimi! ✉️</span><span class="en">Write to me! ✉️</span></span>
-    <p><span class="it">Progetti, collaborazioni, idee. Rispondo davvero.</span><span class="en">Projects, collaborations, ideas. I actually reply.</span></p>
+    <p class="contatti-intro"><span class="it">Progetti, collaborazioni, idee. Rispondo davvero.</span><span class="en">Projects, collaborations, ideas. I actually reply.</span></p>
+    <p class="cv-joke">
+      <span class="it">Preferisci il formato classico? Richiedi il mio <a href="mailto:giulia_verghini_13@libero.it?subject=Richiesta%20CV%20-%20Giulia%20Verghini&body=Ciao%20Giulia%2C%0D%0A%0D%0Aho%20esplorato%20il%20tuo%20portfolio%20e%20il%20tuo%20profilo%20mi%20ha%20incuriosito.%20Mi%20piacerebbe%20dare%20un'occhiata%20al%20tuo%20CV%20aggiornato%20quando%20hai%20un%20attimo.%0D%0A%0D%0AGrazie%2C%0D%0A%5BIl%20tuo%20nome%5D" class="cv-link">CV</a> 📝 così puoi giudicare la mia transizione da umanista al mondo tech 😳</span>
+      <span class="en">Prefer the classic format? Request my <a href="mailto:giulia_verghini_13@libero.it?subject=CV%20Request%20-%20Giulia%20Verghini&body=Hi%20Giulia%2C%0D%0A%0D%0AI%20was%20exploring%20your%20portfolio%20and%20I'm%20really%20interested%20in%20your%20profile.%20I%20would%20love%20to%20review%20your%20updated%20CV%20when%20you%20have%20a%20moment.%0D%0A%0D%0AThanks%2C%0D%0A%5BYour%20Name%5D" class="cv-link">CV</a> 📝 so you can judge my transition from humanities to tech 😳</span>
+    </p>
     <div class="contatti-links">
       <a class="clink c1" href="mailto:giulia_verghini_13@libero.it">Email</a>
       <a class="clink c2" href="https://www.linkedin.com/in/giuliaverghini" target="_blank" rel="noopener">LinkedIn ↗</a>
