@@ -3,225 +3,211 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Giulia Verghini — Project Manager · Innovazione · AI</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%231A1612'/%3E%3Ctext x='50' y='62' font-family='Georgia,serif' font-size='46' font-weight='500' fill='%23FBF8F2' text-anchor='middle'%3EGV%3C/text%3E%3Crect x='28' y='74' width='44' height='3' fill='%233E8E87'/%3E%3C/svg%3E">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+<title>Giulia Verghini — Project Management · Innovazione · AI</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23C9286B'/%3E%3Ctext x='50' y='64' font-family='Arial,sans-serif' font-size='46' font-weight='800' fill='%23F6D34A' text-anchor='middle'%3EGV%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#FBF8F2;
-    --bg2:#F4ECDE;
-    --ink:#1A1612;          /* nero-inchiostro caldo */
-    --ink-soft:#4A443C;
-    --sea:#3E8E87;
-    --sea-dark:#2E6F69;
-    --rosa:#D98C82;
-    --sand:#C98A3E;
-    --line:#1A1612;
-    --line-soft:rgba(26,22,18,.16);
+    --ocra:#E8A33D;
+    --ocra-dark:#D89030;
+    --magenta:#C9286B;
+    --teal:#2E8B8B;
+    --arancio:#E8822D;
+    --ink:#231A12;
+    --cream:#FBF1DF;
+    --white:#FFFFFF;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{
-    background:var(--bg);color:var(--ink);
-    font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
-    line-height:1.6;overflow-x:hidden;
+    background:var(--ocra);color:var(--ink);
+    font-family:'Poppins',-apple-system,BlinkMacSystemFont,sans-serif;
+    font-weight:400;line-height:1.6;overflow-x:hidden;
   }
-  ::selection{background:var(--ink);color:var(--bg)}
-  .serif{font-family:'Fraunces',Georgia,serif}
+  ::selection{background:var(--magenta);color:#fff}
 
   body[data-lang="it"] .en{display:none !important}
   body[data-lang="en"] .it{display:none !important}
 
-  /* editorial labels */
-  .label{
-    font-size:.7rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;
-    color:var(--ink);
+  /* highlight a blocchi colorati (il tratto di Kantwon) */
+  .hl{
+    display:inline;box-decoration-break:clone;-webkit-box-decoration-break:clone;
+    padding:2px 10px;line-height:1.7;
   }
-  .num{font-family:'Fraunces',serif;font-style:italic;font-weight:400}
+  .hl-m{background:var(--magenta);color:#fff}
+  .hl-t{background:var(--teal);color:#fff}
+  .hl-o{background:var(--arancio);color:#fff}
+  .hl-y{background:var(--ocra);color:var(--ink)}
 
-  /* ---------- NAV ---------- */
+  /* ---------- NAV (stile Kantwon: logo a sx, social a dx) ---------- */
   nav{
     position:fixed;top:0;left:0;right:0;z-index:100;
     display:flex;justify-content:space-between;align-items:center;
-    padding:14px 4vw;
-    background:var(--bg);
-    border-bottom:1px solid var(--line);
+    padding:22px 5vw;
   }
   .nav-logo{
-    display:inline-flex;flex-direction:column;align-items:flex-start;gap:3px;
-    text-decoration:none;
-  }
-  .nav-logo .mono{
-    font-family:'Fraunces',serif;font-weight:500;font-size:1.5rem;
-    letter-spacing:.02em;color:var(--ink);line-height:1;
-  }
-  .nav-logo .rule{
-    width:100%;height:1.5px;background:var(--ink);
+    font-weight:700;font-size:1.7rem;color:var(--white);text-decoration:none;
+    letter-spacing:-.01em;
   }
   .nav-right{display:flex;align-items:center;gap:30px}
-  .nav-links{display:flex;gap:26px;list-style:none}
+  .nav-links{display:flex;gap:18px;list-style:none}
   .nav-links a{
-    text-decoration:none;color:var(--ink);font-size:.74rem;font-weight:600;
-    letter-spacing:.12em;text-transform:uppercase;transition:opacity .2s;
+    text-decoration:none;color:var(--white);font-size:1.05rem;font-weight:500;
+    padding-bottom:3px;border-bottom:1.5px solid transparent;transition:border-color .2s;
   }
-  .nav-links a:hover{opacity:.5}
-  @media(max-width:820px){.nav-links{display:none}}
-  .lang-switch{display:flex;gap:2px;font-size:.74rem;font-weight:700;letter-spacing:.08em}
+  .nav-links a:hover{border-color:var(--white)}
+  @media(max-width:680px){.nav-links{display:none}}
+  .nav-social{display:flex;align-items:center;gap:22px}
+  .nav-social a{
+    color:var(--white);display:inline-flex;text-decoration:none;
+    transition:opacity .2s,transform .2s;
+  }
+  .nav-social a:hover{opacity:.65;transform:translateY(-2px)}
+  .nav-social svg{width:24px;height:24px;display:block;fill:currentColor}
+  .lang-switch{display:flex;gap:4px;font-weight:800;font-size:.85rem;margin-left:4px}
   .lang-switch button{
-    border:none;background:transparent;color:var(--ink);cursor:pointer;
-    font-family:inherit;padding:4px 6px;opacity:.4;transition:opacity .2s;
+    border:none;background:var(--white);color:var(--ink);cursor:pointer;
+    font-family:inherit;padding:5px 11px;border-radius:8px;transition:all .2s;
   }
-  .lang-switch button.active{opacity:1;text-decoration:underline;text-underline-offset:3px}
+  .lang-switch button.active{background:var(--ink);color:var(--white)}
 
-  /* ---------- HERO ---------- */
+  /* ---------- HERO (stile Kantwon) ---------- */
   header{
-    border-bottom:1px solid var(--line);
-    padding:120px 4vw 0;
-  }
-  .hero-meta{
-    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
-    padding-bottom:26px;border-bottom:1px solid var(--line-soft);
+    min-height:100vh;display:flex;flex-direction:column;align-items:center;
+    justify-content:center;text-align:center;padding:120px 5vw 40px;position:relative;
   }
   h1{
-    font-family:'Fraunces',serif;font-weight:300;
-    font-size:clamp(3.2rem,12vw,10rem);line-height:.92;letter-spacing:-.02em;
-    padding:42px 0 30px;
+    font-weight:600;font-size:clamp(2.6rem,7vw,5rem);line-height:1.1;
+    color:var(--white);letter-spacing:-.01em;margin-bottom:8px;
+    opacity:0;animation:pop .6s .15s forwards;
   }
-  h1 em{font-style:italic;font-weight:400}
-  .hero-foot{
-    display:grid;grid-template-columns:1fr 1fr;gap:30px;
-    padding:30px 0 46px;border-top:1px solid var(--line-soft);
+  h1 .scribble{
+    position:relative;display:inline-block;color:var(--white);
   }
-  @media(max-width:760px){.hero-foot{grid-template-columns:1fr;gap:20px}}
-  .hero-sub{font-size:1.12rem;max-width:46ch;color:var(--ink-soft)}
-  .hero-cta{display:flex;align-items:flex-end;justify-content:flex-end;gap:18px}
-  @media(max-width:760px){.hero-cta{justify-content:flex-start}}
-  .link-arrow{
-    font-family:'Fraunces',serif;font-style:italic;font-size:1.3rem;
-    color:var(--ink);text-decoration:none;border-bottom:1.5px solid var(--ink);
-    padding-bottom:3px;transition:color .2s,border-color .2s;
+  h1 .scribble::after{
+    content:'';position:absolute;left:-4%;right:-6%;bottom:-16px;height:26px;
+    background:no-repeat center/100% 100%;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 340 34'%3E%3Cpath d='M6 20 Q70 6 150 14 Q230 22 312 10 Q260 24 150 22 Q60 20 16 28' stroke='%23231A12' stroke-width='3.2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
   }
-  .link-arrow:hover{color:var(--sea);border-color:var(--sea)}
+  .avatar-wrap{
+    margin:54px 0 0;position:relative;
+    opacity:0;animation:pop .8s .45s forwards;
+  }
+  .avatar{width:340px;max-width:74vw}
+  .avatar img{width:100%;height:auto;display:block;filter:drop-shadow(0 18px 30px rgba(0,0,0,.18))}
+  .avatar .ph{
+    width:340px;max-width:74vw;aspect-ratio:3/4;border-radius:24px;
+    background:rgba(0,0,0,.06);display:flex;align-items:center;justify-content:center;
+    font-size:.9rem;font-weight:600;color:var(--ink);opacity:.6;text-align:center;padding:24px;
+  }
+  @keyframes pop{from{opacity:0;transform:translateY(22px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+  .scroll-hint{
+    position:absolute;bottom:26px;font-size:1.6rem;color:var(--ink);
+    animation:bounce 1.8s infinite;
+  }
+  @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
 
-  /* ---------- SECTION SCAFFOLD ---------- */
-  section{padding:0 4vw}
-  .row{
-    display:grid;grid-template-columns:auto 1fr;gap:40px;
-    padding:30px 0;border-bottom:1px solid var(--line);
+  /* ---------- SECTION BASE ---------- */
+  section{padding:90px 6vw;position:relative}
+  .sec-teal{background:var(--teal);color:var(--white)}
+  .sec-magenta{background:var(--magenta);color:var(--white)}
+  .sec-ocra{background:var(--ocra)}
+  .wrap{max-width:1080px;margin:0 auto}
+  .badge-title{
+    display:inline-block;font-weight:800;font-size:clamp(1.6rem,4vw,2.6rem);
+    padding:6px 20px;margin-bottom:34px;transform:rotate(-1.5deg);
   }
-  @media(max-width:760px){.row{grid-template-columns:1fr;gap:14px}}
-  .row-head{display:flex;flex-direction:column;gap:6px;min-width:120px}
-  .row-head .num{font-size:1.4rem;color:var(--sea)}
-  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1)}
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1)}
   .reveal.visible{opacity:1;transform:translateY(0)}
 
-  h2{
-    font-family:'Fraunces',serif;font-weight:300;
-    font-size:clamp(2rem,5vw,3.4rem);line-height:1.05;letter-spacing:-.015em;
+  /* ---------- CHI SONO ---------- */
+  .who-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:50px;align-items:center}
+  @media(max-width:820px){.who-grid{grid-template-columns:1fr;gap:34px}}
+  .who-photo{
+    aspect-ratio:1;border-radius:24px;overflow:hidden;position:relative;
+    background:var(--ocra);display:flex;align-items:center;justify-content:center;
   }
-  h2 em{font-style:italic;font-weight:400}
+  .who-photo .splat{position:absolute;border-radius:46% 54% 60% 40%/55% 48% 52% 45%;z-index:1}
+  .who-photo .s1{width:75%;height:75%;background:var(--magenta);top:8%;left:6%}
+  .who-photo .s2{width:55%;height:55%;background:var(--teal);bottom:4%;right:4%;opacity:.85}
+  .who-photo .ph{position:relative;z-index:2;color:#fff;font-weight:700;text-align:center;padding:20px;font-size:.95rem}
+  .who-text p{font-size:1.18rem;margin-bottom:18px;font-weight:500;line-height:1.7}
+  .who-text p:last-child{margin-bottom:0}
 
-  /* ---------- INTRO / STATEMENT + PHOTO ---------- */
-  .intro{
-    display:grid;grid-template-columns:1.4fr 1fr;gap:0;
-    border-bottom:1px solid var(--line);
-  }
-  @media(max-width:820px){.intro{grid-template-columns:1fr}}
-  .statement{
-    padding:60px 4vw;border-right:1px solid var(--line);
-    display:flex;flex-direction:column;justify-content:center;gap:22px;
-  }
-  @media(max-width:820px){.statement{border-right:none;border-bottom:1px solid var(--line)}}
-  .statement p{
-    font-family:'Fraunces',serif;font-weight:300;font-style:italic;
-    font-size:clamp(1.5rem,3vw,2.4rem);line-height:1.3;
-  }
-  .statement p b{font-weight:500;font-style:normal}
-  .photo{
-    min-height:460px;background:var(--bg2);
-    display:flex;align-items:center;justify-content:center;
-    color:var(--ink-soft);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
-    text-align:center;padding:20px;
-  }
-  .photo img{width:100%;height:100%;object-fit:cover;display:block}
-
-  /* ---------- STORIA ---------- */
-  .storia-lead{
-    font-family:'Fraunces',serif;font-weight:300;
-    font-size:clamp(1.4rem,2.6vw,2rem);line-height:1.4;max-width:24ch;
-  }
-  .storia-lead em{font-style:italic}
-  .storia-body{max-width:54ch;color:var(--ink-soft);font-size:1.05rem}
-  .firma{
-    font-family:'Fraunces',serif;font-style:italic;font-size:1.15rem;
-    color:var(--ink);margin-top:18px;
-  }
-
-  /* journey */
-  .jnote{font-size:.86rem;color:var(--ink-soft);margin:6px 0 18px}
-  .tags{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--line-soft)}
+  /* ---------- PERCORSO (tag) ---------- */
+  .jnote{font-size:1.05rem;margin-bottom:24px;font-weight:500;max-width:62ch}
+  .tags{display:flex;flex-wrap:wrap;gap:12px}
   .tag{
-    background:transparent;border:none;border-bottom:1px solid var(--line-soft);
-    color:var(--ink);cursor:pointer;font-family:'Fraunces',serif;
-    font-size:1.25rem;font-weight:400;text-align:left;
-    padding:15px 0;width:100%;display:flex;align-items:baseline;gap:14px;
-    transition:padding-left .25s,color .2s;
+    border:none;cursor:pointer;font-family:inherit;
+    background:var(--white);color:var(--ink);
+    font-size:1rem;font-weight:700;padding:12px 22px;border-radius:999px;
+    display:inline-flex;align-items:center;gap:9px;
+    transition:transform .2s;
   }
-  .tag:hover{padding-left:12px;color:var(--sea)}
-  .tag.active{padding-left:12px}
-  .tag .tnum{
-    font-family:'Inter',sans-serif;font-size:.7rem;font-weight:600;
-    letter-spacing:.1em;color:var(--ink-soft);min-width:34px;
-  }
-  .tag.active .tnum{color:var(--sea)}
-  .tag.cert .tnum{color:var(--sand)}
-  .tag .tplus{margin-left:auto;font-family:'Inter',sans-serif;font-size:1.1rem;opacity:.4;transition:transform .25s,opacity .2s}
-  .tag.active .tplus{transform:rotate(45deg);opacity:1;color:var(--sea)}
-
+  .tag:hover{transform:translateY(-3px) rotate(-1deg)}
+  .tag.active{background:var(--ink);color:var(--white)}
+  .tag .dot{width:9px;height:9px;border-radius:50%;background:var(--arancio)}
+  .tag.cert .dot{background:var(--teal)}
+  .tag.active .dot{background:var(--ocra)}
   .panel{
     max-height:0;opacity:0;overflow:hidden;
-    transition:max-height .4s cubic-bezier(.2,.7,.3,1),opacity .3s,padding .3s;
-    padding:0 0 0 48px;border-left:2px solid var(--sea);margin-left:0;
+    transition:max-height .4s cubic-bezier(.2,.7,.3,1),opacity .3s,margin .3s,padding .3s;
+    background:var(--white);color:var(--ink);border-radius:20px;margin-top:0;padding:0 30px;
   }
-  .panel.open{max-height:300px;opacity:1;padding:18px 0 24px 48px;margin:6px 0 6px}
-  .panel .pkind{font-size:.66rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--sea);margin-bottom:8px;display:block}
-  .panel .pkind.cert{color:var(--sand)}
-  .panel p{font-size:1.05rem;color:var(--ink-soft);max-width:64ch}
+  .panel.open{max-height:420px;opacity:1;margin-top:22px;padding:26px 30px}
+  .panel .pkind{
+    display:inline-block;font-size:.7rem;font-weight:800;letter-spacing:.08em;
+    text-transform:uppercase;color:#fff;background:var(--arancio);
+    padding:4px 12px;border-radius:999px;margin-bottom:12px;
+  }
+  .panel .pkind.cert{background:var(--teal)}
+  .panel p{font-size:1.05rem;line-height:1.65;font-weight:500}
 
   /* ---------- CONTATTI ---------- */
-  .contatti{
-    text-align:center;padding:90px 4vw;border-bottom:1px solid var(--line);
+  .contatti{text-align:center}
+  .contatti .badge-title{background:var(--ocra);color:var(--ink)}
+  .contatti p{font-size:1.2rem;max-width:40ch;margin:0 auto 34px;font-weight:500}
+  .contatti-links{display:flex;justify-content:center;flex-wrap:wrap;gap:16px}
+  .clink{
+    text-decoration:none;font-weight:700;font-size:1.05rem;
+    padding:14px 30px;border-radius:999px;transition:transform .2s;
+    display:inline-flex;align-items:center;gap:8px;
   }
-  .contatti h2{font-size:clamp(2.4rem,7vw,5rem);margin-bottom:30px}
-  .contatti-links{display:flex;justify-content:center;flex-wrap:wrap;gap:26px}
-  .contatti-links a{
-    font-family:'Fraunces',serif;font-style:italic;font-size:1.3rem;
-    color:var(--ink);text-decoration:none;
-    border-bottom:1.5px solid var(--line);padding-bottom:3px;
-    transition:color .2s,border-color .2s;
-  }
-  .contatti-links a:hover{color:var(--sea);border-color:var(--sea)}
+  .clink:hover{transform:translateY(-3px) rotate(-1deg)}
+  .clink.c1{background:var(--ink);color:#fff}
+  .clink.c2{background:transparent;color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.6)}
+  .clink.c3{background:var(--arancio);color:#fff}
 
-  /* ---------- FOOTER (testata) ---------- */
-  footer{padding:40px 4vw}
-  .foot-rule{border-top:2px solid var(--line);padding-top:18px;
-    display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px}
-  .foot-name{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(1.6rem,4vw,2.4rem);letter-spacing:-.01em}
-  .foot-meta{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ink);color:var(--cream);text-align:center;padding:40px 5vw}
+  footer .fname{font-weight:800;font-size:1.4rem;color:var(--white);margin-bottom:6px}
+  footer .fmeta{font-size:.85rem;opacity:.7}
+
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none !important}
+    .reveal{opacity:1;transform:none}
+  }
 </style>
 </head>
 <body data-lang="it">
 
 <nav>
-  <a class="nav-logo" href="#top" aria-label="Giulia Verghini">
-    <span class="mono">GV</span>
-    <span class="rule"></span>
-  </a>
+  <a class="nav-logo" href="#top">GV</a>
   <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="#storia"><span class="it">Storia</span><span class="en">Story</span></a></li>
-      <li><a href="#contatti"><span class="it">Contatti</span><span class="en">Contact</span></a></li>
-    </ul>
+    <div class="nav-social">
+      <a href="https://www.instagram.com/DA-INSERIRE" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.12 1.38C1.36 2.67.94 3.34.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.8.72 1.47 1.38 2.13.66.66 1.33 1.08 2.12 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.8-.3 1.47-.72 2.13-1.38.66-.66 1.08-1.33 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.8-.72-1.47-1.38-2.13C20.4 1.36 19.73.94 18.93.63 18.17.33 17.29.13 16.02.07 14.74.01 14.33 0 11.07 0H12m0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84M12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4m6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/giuliaverghini" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13M7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0"/></svg>
+      </a>
+      <a href="https://github.com/giuliaverghini-13" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+        <svg viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.79 23.4c.6.1.82-.26.82-.58l-.01-2.04c-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.08-.75.09-.73.09-.73 1.2.08 1.83 1.23 1.83 1.23 1.07 1.83 2.81 1.3 3.5.99.1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.62-5.48 5.92.43.37.81 1.1.81 2.22l-.01 3.29c0 .32.22.69.83.57A12 12 0 0 0 12 .3"/></svg>
+      </a>
+      <a href="mailto:giulia_verghini_13@libero.it" aria-label="Email" title="Email">
+        <svg viewBox="0 0 24 24"><path d="M22 4H2C.9 4 0 4.9 0 6v12c0 1.1.9 2 2 2h20c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2m0 4-10 6.25L2 8V6l10 6.25L22 6v2z"/></svg>
+      </a>
+    </div>
     <div class="lang-switch">
       <button id="btn-it" class="active" onclick="setLang('it')">IT</button>
       <button id="btn-en" onclick="setLang('en')">EN</button>
@@ -229,97 +215,136 @@
   </div>
 </nav>
 
+<!-- ============ HERO ============ -->
 <header id="top">
-  <div class="hero-meta">
-    <span class="label">Project Management · Business Development · <span class="it">Innovazione</span><span class="en">Innovation</span> · AI</span>
-    <span class="label"><span class="it">Roma, Italia</span><span class="en">Rome, Italy</span></span>
-  </div>
-  <h1 class="serif">
-    <span class="it">Dalle parole,<br><em>ai progetti.</em></span>
-    <span class="en">From words,<br><em>to projects.</em></span>
+  <h1>
+    <span class="it">Ciao! 👋 Sono <span class="scribble">Giulia</span></span>
+    <span class="en">Hi! 👋 I'm <span class="scribble">Giulia</span></span>
   </h1>
-  <div class="hero-foot">
-    <p class="hero-sub">
-      <span class="it">Giulia Verghini. Unisco una formazione umanistica a competenze di project management, innovazione e intelligenza artificiale, lavorando all'intersezione tra persone, strategia e tecnologia.</span>
-      <span class="en">Giulia Verghini. I combine a humanities background with project management, innovation and artificial intelligence, working at the intersection of people, strategy and technology.</span>
-    </p>
-    <div class="hero-cta">
-      <a class="link-arrow" href="#contatti"><span class="it">Contattami →</span><span class="en">Get in touch →</span></a>
+  <div class="avatar-wrap">
+    <div class="avatar">
+      <img src="giulia.png" alt="Giulia Verghini">
     </div>
   </div>
+  <div class="scroll-hint">↓</div>
 </header>
 
-<div class="intro">
-  <div class="statement reveal">
-    <span class="label"><span class="num">↓</span> &nbsp;<span class="it">Il punto</span><span class="en">The point</span></span>
-    <p>
-      <span class="it">Più la capacità tecnica si diffonde, <b>meno è sufficiente da sola.</b> Ciò che fa la differenza è la capacità di comprendere il contesto, orientare il confronto e costruire allineamento tra persone e competenze diverse.</span>
-      <span class="en">The more technical capability spreads, <b>the less it is enough on its own.</b> What makes the difference is the ability to understand context, steer the conversation and build alignment between different people and skills.</span>
+<!-- ============ CHI SONO ============ -->
+<section class="sec-teal" id="chisono">
+  <div class="wrap">
+    <div class="reveal"><span class="badge-title hl-m" style="color:#fff"><span class="it">E chi sarebbe? 🤔</span><span class="en">Who is she? 🤔</span></span></div>
+    <div class="who-grid">
+      <div class="who-photo reveal">
+        <div class="splat s1"></div>
+        <div class="splat s2"></div>
+        <img src="giulia.png" alt="Giulia Verghini" style="position:relative;z-index:2;width:94%;height:94%;object-fit:contain">
+      </div>
+      <div class="who-text reveal">
+        <p><span class="it">Sono una <span class="hl hl-o">project &amp; business developer</span> che lavora all'intersezione tra persone, strategia e tecnologia.</span><span class="en">I'm a <span class="hl hl-o">project &amp; business developer</span> working at the intersection of people, strategy and technology.</span></p>
+        <p><span class="it">Vengo da una <span class="hl hl-y">formazione umanistica</span> 📚 e ci ho aggiunto project management, innovazione e una bella dose di <span class="hl hl-y">intelligenza artificiale</span> 🤖.</span><span class="en">I come from a <span class="hl hl-y">humanities background</span> 📚 and added project management, innovation and a solid dose of <span class="hl hl-y">artificial intelligence</span> 🤖.</span></p>
+        <p><span class="it">Il mio lavoro? Far parlare mondi che di solito non si capiscono. 🌍</span><span class="en">My job? Getting worlds that usually don't understand each other to talk. 🌍</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IL PUNTO ============ -->
+<section class="sec-ocra">
+  <div class="wrap">
+    <div class="reveal"><span class="badge-title hl-m" style="color:#fff"><span class="it">Il punto 💡</span><span class="en">The point 💡</span></span></div>
+    <p class="reveal" style="font-size:clamp(1.4rem,3vw,2.1rem);font-weight:700;line-height:1.45;max-width:24ch">
+      <span class="it">Più la capacità tecnica si diffonde, <span class="hl hl-m">meno è sufficiente da sola.</span></span>
+      <span class="en">The more technical capability spreads, <span class="hl hl-m">the less it's enough on its own.</span></span>
+    </p>
+    <p class="reveal" style="font-size:1.15rem;font-weight:500;max-width:54ch;margin-top:20px">
+      <span class="it">Quello che fa la differenza è saper leggere il contesto, fare le domande giuste e costruire allineamento tra persone e competenze diverse.</span>
+      <span class="en">What makes the difference is reading context, asking the right questions and building alignment between different people and skills.</span>
     </p>
   </div>
-  <div class="photo reveal">
-    <img src="giulia.jpeg" alt="Giulia Verghini">
-  </div>
-</div>
+</section>
 
-<section id="storia">
-  <div class="row reveal">
-    <div class="row-head">
-      <span class="num">01</span>
-      <span class="label"><span class="it">La storia</span><span class="en">The story</span></span>
+<!-- ============ IL MIO PERCORSO ============ -->
+<section class="sec-magenta" id="percorso">
+  <div class="wrap">
+    <div class="reveal"><span class="badge-title hl-y"><span class="it">Il mio percorso 🧭</span><span class="en">My path 🧭</span></span></div>
+    <p class="jnote reveal"><span class="it">Cinque tappe, due certificazioni. Clicca per scoprire competenze, strumenti e cosa mi ha lasciato.</span><span class="en">Five steps, two certifications. Click to discover the skills, tools and what each one left me.</span></p>
+    <div class="tags reveal" id="tags">
+      <button class="tag active" data-key="lingue"><span class="dot"></span><span class="it">Lingue</span><span class="en">Languages</span></button>
+      <button class="tag" data-key="insegnamento"><span class="dot"></span><span class="it">Insegnamento</span><span class="en">Teaching</span></button>
+      <button class="tag" data-key="industria"><span class="dot"></span><span class="it">Industria</span><span class="en">Industry</span></button>
+      <button class="tag" data-key="innovazione"><span class="dot"></span><span class="it">Innovazione</span><span class="en">Innovation</span></button>
+      <button class="tag" data-key="ai"><span class="dot"></span><span class="it">Master in AI Development</span><span class="en">Master in AI Development</span></button>
+      <button class="tag cert" data-key="cert-pmp"><span class="dot"></span>PMP</button>
+      <button class="tag cert" data-key="cert-agile"><span class="dot"></span>Agile PM</button>
     </div>
-    <div>
-      <p class="storia-lead serif">
-        <span class="it">Mondi che sembrano distanti. È nel passaggio dall'uno all'altro che ho imparato a <em>tradurre linguaggi, prospettive e bisogni diversi.</em></span>
-        <span class="en">Worlds that look distant. It's in the passage from one to the next that I learned to <em>translate different languages, perspectives and needs.</em></span>
-      </p>
-    </div>
-  </div>
-
-  <div class="row reveal">
-    <div class="row-head">
-      <span class="num">02</span>
-      <span class="label"><span class="it">Il percorso</span><span class="en">The path</span></span>
-    </div>
-    <div>
-      <p class="jnote"><span class="it">Cinque tappe, due certificazioni. Apri una voce per scoprire competenze, strumenti e insegnamenti che ne ho tratto.</span><span class="en">Five steps, two certifications. Open an item to discover the skills, tools and lessons I drew from each.</span></p>
-      <div class="tags" id="tags">
-        <button class="tag active" data-key="lingue"><span class="tnum">01</span><span class="it">Lingue</span><span class="en">Languages</span><span class="tplus">+</span></button>
-        <button class="tag" data-key="insegnamento"><span class="tnum">02</span><span class="it">Insegnamento</span><span class="en">Teaching</span><span class="tplus">+</span></button>
-        <button class="tag" data-key="industria"><span class="tnum">03</span><span class="it">Industria</span><span class="en">Industry</span><span class="tplus">+</span></button>
-        <button class="tag" data-key="innovazione"><span class="tnum">04</span><span class="it">Innovazione</span><span class="en">Innovation</span><span class="tplus">+</span></button>
-        <button class="tag" data-key="ai"><span class="tnum">05</span><span class="it">Master in AI Development</span><span class="en">Master in AI Development</span><span class="tplus">+</span></button>
-        <button class="tag cert" data-key="cert-pmp"><span class="tnum">C1</span>PMP<span class="tplus">+</span></button>
-        <button class="tag cert" data-key="cert-agile"><span class="tnum">C2</span>Agile PM<span class="tplus">+</span></button>
-      </div>
-      <div class="panel" id="panel">
-        <span class="pkind" id="panel-kind"></span>
-        <p id="panel-text"></p>
-      </div>
+    <div class="panel" id="panel">
+      <span class="pkind" id="panel-kind"></span>
+      <p id="panel-text"></p>
     </div>
   </div>
 </section>
 
-<section class="contatti" id="contatti">
-  <div class="reveal">
-    <span class="label"><span class="num">03</span> &nbsp;<span class="it">Contatti</span><span class="en">Contact</span></span>
-    <h2 class="serif" style="margin-top:18px"><span class="it">Scrivimi.</span><span class="en">Write to me.</span></h2>
+<!-- ============ CONTATTI ============ -->
+<section class="sec-teal contatti" id="contatti">
+  <div class="wrap reveal">
+    <span class="badge-title"><span class="it">Scrivimi! ✉️</span><span class="en">Write to me! ✉️</span></span>
+    <p><span class="it">Progetti, collaborazioni, idee. Rispondo davvero.</span><span class="en">Projects, collaborations, ideas. I actually reply.</span></p>
     <div class="contatti-links">
-      <a href="mailto:giulia_verghini_13@libero.it">Email</a>
-      <a href="https://www.linkedin.com/in/giuliaverghini" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://github.com/giuliaverghini-13" target="_blank" rel="noopener">GitHub</a>
+      <a class="clink c1" href="mailto:giulia_verghini_13@libero.it">Email</a>
+      <a class="clink c2" href="https://www.linkedin.com/in/giuliaverghini" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="clink c3" href="https://github.com/giuliaverghini-13" target="_blank" rel="noopener">GitHub ↗</a>
     </div>
   </div>
 </section>
 
+<!-- ============ FOOTER ============ -->
 <footer>
-  <div class="foot-rule">
-    <span class="foot-name serif">Giulia Verghini</span>
-    <span class="foot-meta">© 2026 — <span class="it">Roma</span><span class="en">Rome</span></span>
-  </div>
+  <div class="fname">Giulia Verghini</div>
+  <div class="fmeta">© 2026 — <span class="it">Roma, Italia</span><span class="en">Rome, Italy</span> · Project Management · Innovazione · AI</div>
 </footer>
 
 <script>
+  const DATA = {
+    'lingue':{kind:'path',
+      it:'Laurea in Lingue, Culture, Letterature e Traduzione alla Sapienza (104/110). Tesi in letteratura angloamericana sui romanzi di guerra di Helen Benedict. Qui ho imparato a leggere testi, contesti e persone — e a muovermi tra inglese e spagnolo.',
+      en:'Degree in Languages, Cultures, Literatures and Translation at Sapienza (104/110). Thesis in Anglo-American literature on Helen Benedict\u2019s war novels. Here I learned to read texts, contexts and people — and to move between English and Spanish.'},
+    'insegnamento':{kind:'path',
+      it:'Durante l\u2019università ho fatto da tutor a ragazzi delle superiori al centro studi "Il Mago di Oz". Spiegare cose difficili in modo che arrivino: è lì che ho capito cosa significa far comunicare due mondi.',
+      en:'During university I tutored high-school students at the "Il Mago di Oz" study centre. Explaining hard things so they land: that\u2019s where I understood what it means to make two worlds talk.'},
+    'industria':{kind:'path',
+      it:'Tre anni in una multinazionale B2B, da specialist a manager di commessa. Ho gestito clienti come Amazon e Novartis: operazioni complesse, alti volumi, pragmatismo quotidiano.',
+      en:'Three years in a B2B multinational, from specialist to account manager. I managed clients like Amazon and Novartis: complex operations, high volumes, everyday pragmatism.'},
+    'innovazione':{kind:'path',
+      it:'Oggi, in una società di ingegneria e costruzioni: progettazione e gestione di programmi e progetti europei di ricerca, partenariati internazionali, innovazione su sostenibilità e transizione digitale.',
+      en:'Today, in an engineering and construction company: design and management of European research programmes and projects, international partnerships, innovation in sustainability and digital transition.'},
+    'ai':{kind:'path',
+      it:'Master in AI Development con ProfessionAI (maggio 2026): 400 ore, 11 progetti realizzati. Python, machine learning, LLM, Agentic AI, Transformer con Hugging Face, full-stack MERN. Per capire davvero la tecnologia, non solo coordinarla.',
+      en:'Master\u2019s in AI Development with ProfessionAI (May 2026): 400 hours, 11 projects built. Python, machine learning, LLMs, Agentic AI, Transformers with Hugging Face, full-stack MERN. To truly understand the technology, not just coordinate it.'},
+    'cert-pmp':{kind:'cert',
+      it:'Project Management Institute. Esame in preparazione: gestione di persone, processi e contesto di business lungo tutto il ciclo di progetto.',
+      en:'Project Management Institute. Exam in preparation: managing people, processes and the business environment across the full project lifecycle.'},
+    'cert-agile':{kind:'cert',
+      it:'Politecnico di Milano, 2025 (EQF 6). Agile Project Management for digital projects: principi Agile e framework SCRUM per gestire la complessità in contesti dinamici.',
+      en:'Politecnico di Milano, 2025 (EQF 6). Agile Project Management for digital projects: Agile principles and the SCRUM framework to handle complexity in dynamic settings.'}
+  };
+
+  let current = 'lingue';
+
+  function renderPanel(){
+    const lang = document.body.getAttribute('data-lang');
+    const d = DATA[current];
+    if(!d) return;
+    const panel = document.getElementById('panel');
+    const kind = document.getElementById('panel-kind');
+    const text = document.getElementById('panel-text');
+    kind.className = 'pkind' + (d.kind === 'cert' ? ' cert' : '');
+    kind.textContent = d.kind === 'cert'
+      ? (lang === 'it' ? 'Certificazione' : 'Certification')
+      : (lang === 'it' ? 'Percorso' : 'Path');
+    text.textContent = (lang === 'it') ? d.it : d.en;
+    panel.classList.add('open');
+  }
+
   function setLang(l){
     document.body.setAttribute('data-lang', l);
     document.documentElement.lang = l;
@@ -328,61 +353,23 @@
     renderPanel();
   }
 
-  const DATA = {
-    'lingue':       {kind:'path',
-      it:'Laurea in Lingue, Culture, Letterature e Traduzione alla Sapienza (104/110). Tesi in letteratura angloamericana sui romanzi di guerra di Helen Benedict. Qui ho imparato a leggere testi, contesti e persone — e a muovermi tra inglese e spagnolo.',
-      en:'A degree in Languages, Cultures, Literatures and Translation at Sapienza (104/110). Thesis in Anglo-American literature on Helen Benedict\u2019s war novels. This is where I learned to read texts, contexts and people — and to move between English and Spanish.'},
-    'insegnamento': {kind:'path',
-      it:'Durante l\u2019università ho fatto da tutor a ragazzi delle superiori al centro studi "Il Mago di Oz". Spiegare cose difficili in modo che arrivino: è lì che ho capito cosa significa davvero far comunicare due mondi.',
-      en:'During university I tutored high-school students at the "Il Mago di Oz" study centre. Explaining hard things so they land: that\u2019s where I understood what it really means to make two worlds talk to each other.'},
-    'industria':    {kind:'path',
-      it:'Tre anni in una multinazionale B2B, da specialist a manager di commessa. Ho gestito clienti come Amazon e Novartis: operazioni complesse, alti volumi, pragmatismo quotidiano.',
-      en:'Three years in a B2B multinational, from specialist to account manager. I managed clients like Amazon and Novartis: complex operations, high volumes, everyday pragmatism.'},
-    'innovazione':  {kind:'path',
-      it:'Oggi, in una società di ingegneria e costruzioni: progettazione e gestione di programmi e progetti europei di ricerca, partenariati internazionali, innovazione su sostenibilità e transizione digitale.',
-      en:'Today, in an engineering and construction company: design and management of European research programmes and projects, international partnerships, innovation in sustainability and digital transition.'},
-    'ai':           {kind:'path',
-      it:'Master in AI Development con ProfessionAI (maggio 2026): 400 ore, 11 progetti realizzati. Python, machine learning, LLM, Agentic AI, Transformer con Hugging Face, full-stack MERN. Per capire davvero la tecnologia, non solo coordinarla.',
-      en:'Master\u2019s in AI Development with ProfessionAI (May 2026): 400 hours, 11 projects built. Python, machine learning, LLMs, Agentic AI, Transformers with Hugging Face, full-stack MERN. To truly understand the technology, not just coordinate it.'},
-    'cert-pmp':     {kind:'cert',
-      it:'Project Management Institute. Esame in preparazione: gestione di persone, processi e contesto di business lungo tutto il ciclo di progetto.',
-      en:'Project Management Institute. Exam in preparation: managing people, processes and the business environment across the full project lifecycle.'},
-    'cert-agile':   {kind:'cert',
-      it:'Politecnico di Milano, 2025 (EQF 6). Agile Project Management for digital projects: principi Agile e framework SCRUM per gestire la complessità in contesti dinamici.',
-      en:'Politecnico di Milano, 2025 (EQF 6). Agile Project Management for digital projects: Agile principles and the SCRUM framework for managing complexity in dynamic environments.'}
-  };
-
-  let currentKey = 'lingue';
-  const panel = document.getElementById('panel');
-  const pKind = document.getElementById('panel-kind');
-  const pText = document.getElementById('panel-text');
-
-  function renderPanel(){
-    const d = DATA[currentKey]; if(!d) return;
-    const lang = document.body.getAttribute('data-lang');
-    pText.textContent = lang==='it' ? d.it : d.en;
-    if(d.kind==='cert'){ pKind.textContent = lang==='it'?'Certificazione':'Certification'; pKind.classList.add('cert'); }
-    else { pKind.textContent = lang==='it'?'Percorso':'Path'; pKind.classList.remove('cert'); }
-  }
-
-  document.querySelectorAll('.tag').forEach(tag => {
-    tag.addEventListener('click', () => {
-      const key = tag.getAttribute('data-key');
-      const tags = document.querySelectorAll('.tag');
-      if(key === currentKey && panel.classList.contains('open')){
-        panel.classList.remove('open'); tags.forEach(t=>t.classList.remove('active')); return;
-      }
-      currentKey = key;
-      tags.forEach(t=>t.classList.toggle('active', t===tag));
-      renderPanel(); panel.classList.add('open');
+  document.querySelectorAll('#tags .tag').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('#tags .tag').forEach(function(t){ t.classList.remove('active'); });
+      btn.classList.add('active');
+      current = btn.getAttribute('data-key');
+      renderPanel();
     });
   });
-  renderPanel(); panel.classList.add('open');
 
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target);} });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  // Apri il primo pannello all'avvio
+  renderPanel();
+
+  // Reveal allo scroll
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
 </script>
 
 </body>
